@@ -19,7 +19,7 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       AccessControl: PublicRead
-      websiteConfigurations:
+      websiteConfiguration:
         IndexDocument: index.html
       BucketName: baahcloudresumebucketk
   HelloWorldFunction:
