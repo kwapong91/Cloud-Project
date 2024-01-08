@@ -22,6 +22,27 @@ Resources:
       WebsiteConfiguration:
         IndexDocument: index.html
       BucketName: baahcloudresumebucketk
+
+MyDistribution:
+  Type: 
+  Properties:
+    DistributionConfig:
+      DefaultCacheBehaviour:
+        ViewerProtocolPolicy: allow-all
+        TargetOriginId: http://baahcloudresumebucketk.s3-website.us-east-2.amazonaws.com
+        DefaultTTL: 0
+        MinTTL: 0
+        MaxTTL: 0
+        ForwardedValues: 
+          QueryStrings: false
+      Origins: 
+          DomainName: http://baahcloudresumebucketk.s3-website.us-east-2.amazonaws.com
+          Id: http://baahcloudresumebucketk.s3-website.us-east-2.amazonaws.com
+          CustomOriginConfig: 
+            OriginProtocolPolicy: match-viewer
+      Enabled: "True"
+      DefaultRootObject: resume.html
+      
   HelloWorldFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
