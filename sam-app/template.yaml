@@ -24,23 +24,23 @@ Resources:
       BucketName: baahcloudresumebucketk
 
 MyDistribution:
-  Type: AWS::CloudFront::Distribution 
+  Type: AWS::CloudFront::Distribution
   Properties:
     DistributionConfig:
-      DefaultCacheBehaviour:
+      DefaultCacheBehavior:
         ViewerProtocolPolicy: allow-all
         TargetOriginId: http://baahcloudresumebucketk.s3-website.us-east-2.amazonaws.com
         DefaultTTL: 0
         MinTTL: 0
         MaxTTL: 0
-        ForwardedValues: 
-          QueryStrings: false
-      Origins: 
-          DomainName: http://baahcloudresumebucketk.s3-website.us-east-2.amazonaws.com
+        ForwardedValues:
+          QueryString: "false" 
+      Origins:
+        - DomainName: http://baahcloudresumebucketk.s3-website.us-east-2.amazonaws.com
           Id: http://baahcloudresumebucketk.s3-website.us-east-2.amazonaws.com
-          CustomOriginConfig: 
+          CustomOriginConfig:
             OriginProtocolPolicy: match-viewer
-      Enabled: "True"
+      Enabled: true  
       DefaultRootObject: resume.html
       
   HelloWorldFunction:
